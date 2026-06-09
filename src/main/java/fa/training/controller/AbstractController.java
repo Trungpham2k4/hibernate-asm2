@@ -35,6 +35,7 @@ public abstract class AbstractController<T, ID> {
         try {
             view.showMessage("Adding new record...");
             T entity = view.inputForAdd();
+            beforeSave(entity);
             service.save(entity);
             view.showMessage("Added successfully!");
         } catch (Exception e) {
