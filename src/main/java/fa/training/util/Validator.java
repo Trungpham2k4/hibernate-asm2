@@ -26,11 +26,11 @@ public class Validator {
     }
 
     public static boolean isValidDate(String date) {
-        if(date == null) return true;
-        try{
+        if(date == null || date.trim().isEmpty()) return true;
+        try {
             LocalDate.parse(date, Constant.DATE_FORMATTER);
             return true;
-        }catch (DateTimeParseException e){
+        } catch (DateTimeParseException e) {
             return false;
         }
     }
